@@ -1,0 +1,1016 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>برای سایان — از طرف حسین</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* بک‌گراند سبز تیره و مخملی */
+      body {
+        font-family: "Vazirmatn", sans-serif;
+        background: radial-gradient(circle at center, #0f2818 0%, #05100a 100%);
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 24px;
+        position: relative;
+        overflow-x: hidden;
+      }
+
+      .stars {
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .star {
+        position: absolute;
+        background: #a7f3d0;
+        border-radius: 50%;
+        opacity: 0.3;
+        animation: twinkle var(--d, 4s) infinite ease-in-out;
+      }
+      @keyframes twinkle {
+        0%,
+        100% {
+          opacity: 0.2;
+          transform: scale(0.8);
+        }
+        50% {
+          opacity: 0.9;
+          transform: scale(1.2);
+        }
+      }
+
+      /* نورهای محیطی سبز */
+      .glow {
+        position: fixed;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        filter: blur(120px);
+        opacity: 0.15;
+        pointer-events: none;
+        z-index: 0;
+      }
+      .glow-1 {
+        top: -100px;
+        right: -100px;
+        background: #34d399;
+      }
+      .glow-2 {
+        bottom: -100px;
+        left: -100px;
+        background: #10b981;
+      }
+
+      /* کارت شیشه‌ای با تم سبز */
+      .card {
+        position: relative;
+        z-index: 2;
+        max-width: 680px;
+        width: 100%;
+        background: rgba(15, 30, 20, 0.6);
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+        border-radius: 32px;
+        border: 1px solid rgba(52, 211, 153, 0.3);
+        padding: 48px 40px 36px;
+        box-shadow:
+          0 30px 80px rgba(0, 0, 0, 0.6),
+          0 0 120px rgba(52, 211, 153, 0.1);
+        animation: cardIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+      @keyframes cardIn {
+        from {
+          opacity: 0;
+          transform: translateY(40px) scale(0.96);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .heart-top {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 24px;
+      }
+      .heart-top svg {
+        width: 48px;
+        height: 48px;
+        fill: #34d399;
+        filter: drop-shadow(0 0 16px rgba(52, 211, 153, 0.6));
+        animation: heartbeat 1.8s ease-in-out infinite;
+      }
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        14% {
+          transform: scale(1.15);
+        }
+        28% {
+          transform: scale(1);
+        }
+        42% {
+          transform: scale(1.12);
+        }
+        56% {
+          transform: scale(1);
+        }
+      }
+
+      h1 {
+        text-align: center;
+        font-size: clamp(1.6rem, 5vw, 2.2rem);
+        font-weight: 700;
+        background: linear-gradient(135deg, #a7f3d0, #34d399, #059669);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-bottom: 8px;
+      }
+      .subtitle {
+        text-align: center;
+        color: rgba(167, 243, 208, 0.6);
+        font-size: 0.95rem;
+        font-weight: 300;
+        margin-bottom: 32px;
+        letter-spacing: 1px;
+      }
+
+      .letter {
+        color: #ecfdf5;
+        font-size: 1.05rem;
+        line-height: 2;
+        font-weight: 300;
+      }
+      .letter p {
+        margin-bottom: 18px;
+        opacity: 0;
+        animation: fadeUp 0.9s ease forwards;
+      }
+      .letter p:nth-child(1) {
+        animation-delay: 0.4s;
+      }
+      .letter p:nth-child(2) {
+        animation-delay: 0.7s;
+      }
+      .letter p:nth-child(3) {
+        animation-delay: 1s;
+      }
+      .letter p:nth-child(4) {
+        animation-delay: 1.3s;
+      }
+      .letter p:nth-child(5) {
+        animation-delay: 1.6s;
+      }
+      .letter p:nth-child(6) {
+        animation-delay: 1.9s;
+      }
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .letter .highlight {
+        color: #6ee7b7;
+        font-weight: 600;
+      }
+      .letter .name {
+        display: inline-block;
+        color: #34d399;
+        font-weight: 700;
+        position: relative;
+      }
+      .letter .name::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #34d399, transparent);
+        border-radius: 2px;
+      }
+
+      .divider {
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(52, 211, 153, 0.4),
+          transparent
+        );
+        margin: 28px 0 24px;
+        border: none;
+      }
+
+      .buttons {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-top: 8px;
+        opacity: 0;
+        animation: fadeUp 0.9s ease 2s forwards;
+      }
+
+      /* دکمه‌های سبز */
+      .btn {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 14px 16px;
+        border-radius: 16px;
+        border: 1px solid rgba(52, 211, 153, 0.3);
+        background: rgba(52, 211, 153, 0.08);
+        color: #d1fae5;
+        font-family: inherit;
+        font-size: 0.92rem;
+        font-weight: 600;
+        cursor: pointer;
+        overflow: hidden;
+        transition:
+          transform 0.2s ease,
+          background 0.3s ease,
+          border-color 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      .btn:hover {
+        background: rgba(52, 211, 153, 0.2);
+        border-color: rgba(52, 211, 153, 0.7);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(52, 211, 153, 0.25);
+      }
+      .btn:active {
+        transform: translateY(0) scale(0.97);
+      }
+      .btn .icon {
+        font-size: 1.15rem;
+        line-height: 1;
+      }
+      .btn::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          circle at var(--mx, 50%) var(--my, 50%),
+          rgba(255, 255, 255, 0.15),
+          transparent 60%
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+      }
+      .btn:hover::before {
+        opacity: 1;
+      }
+
+      .btn.full {
+        grid-column: span 2;
+      }
+      .btn.active {
+        background: rgba(52, 211, 153, 0.3);
+        border-color: #34d399;
+        box-shadow: 0 0 20px rgba(52, 211, 153, 0.5);
+      }
+
+      .signature {
+        text-align: left;
+        margin-top: 24px;
+        opacity: 0;
+        animation: fadeUp 0.9s ease 2.4s forwards;
+      }
+      .signature .with-love {
+        color: rgba(167, 243, 208, 0.6);
+        font-size: 0.95rem;
+        font-weight: 300;
+        margin-bottom: 4px;
+      }
+      .signature .name-sign {
+        font-size: 1.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #a7f3d0, #34d399);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* قلب‌های شناور */
+      .floating-heart {
+        position: fixed;
+        pointer-events: none;
+        z-index: 1;
+        animation: floatUp 4s ease-out forwards;
+        opacity: 0;
+      }
+      @keyframes floatUp {
+        0% {
+          opacity: 0;
+          transform: translateY(0) scale(0.5) rotate(0deg);
+        }
+        15% {
+          opacity: 0.9;
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-120vh) scale(1.2) rotate(20deg);
+        }
+      }
+
+      /* ذرات آتش‌بازی */
+      .firework {
+        position: fixed;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: 999;
+      }
+      @keyframes explode {
+        0% {
+          opacity: 1;
+          transform: translate(0, 0) scale(1);
+        }
+        100% {
+          opacity: 0;
+          transform: translate(var(--tx), var(--ty)) scale(0.2);
+        }
+      }
+
+      /* مودال‌ها */
+      .secret-modal,
+      .game-modal,
+      .gallery-modal {
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(5, 15, 10, 0.85);
+        backdrop-filter: blur(8px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.4s ease;
+        padding: 20px;
+      }
+      .secret-modal.open,
+      .game-modal.open,
+      .gallery-modal.open {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .secret-box,
+      .game-box,
+      .gallery-box {
+        max-width: 440px;
+        width: 100%;
+        background: linear-gradient(
+          145deg,
+          rgba(20, 40, 30, 0.97),
+          rgba(10, 20, 15, 0.97)
+        );
+        border: 1px solid rgba(52, 211, 153, 0.4);
+        border-radius: 24px;
+        padding: 28px 24px;
+        text-align: center;
+        box-shadow:
+          0 30px 80px rgba(0, 0, 0, 0.7),
+          0 0 60px rgba(52, 211, 153, 0.15);
+        transform: scale(0.85) translateY(20px);
+        transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .secret-modal.open .secret-box,
+      .game-modal.open .game-box,
+      .gallery-modal.open .gallery-box {
+        transform: scale(1) translateY(0);
+      }
+
+      .secret-box .lock {
+        font-size: 2.5rem;
+        margin-bottom: 16px;
+        display: block;
+      }
+      .secret-box h2,
+      .game-box h2,
+      .gallery-box h2 {
+        font-size: 1.3rem;
+        margin-bottom: 14px;
+        color: #6ee7b7;
+        font-weight: 700;
+      }
+      .secret-box p,
+      .gallery-box p {
+        color: #ecfdf5;
+        line-height: 1.9;
+        font-size: 1rem;
+        font-weight: 300;
+      }
+
+      .close-btn {
+        margin-top: 24px;
+        padding: 10px 28px;
+        background: rgba(52, 211, 153, 0.15);
+        border: 1px solid rgba(52, 211, 153, 0.4);
+        color: #d1fae5;
+        border-radius: 12px;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 0.9rem;
+        font-weight: 600;
+        transition: background 0.3s ease;
+      }
+      .close-btn:hover {
+        background: rgba(52, 211, 153, 0.3);
+      }
+
+      .game-box .game-sub {
+        font-size: 0.85rem;
+        color: rgba(167, 243, 208, 0.6);
+        margin-bottom: 18px;
+      }
+      .game-area {
+        position: relative;
+        height: 260px;
+        background: rgba(5, 15, 10, 0.6);
+        border: 1px dashed rgba(52, 211, 153, 0.25);
+        border-radius: 16px;
+        overflow: hidden;
+        margin-bottom: 16px;
+        touch-action: none;
+      }
+      .game-score {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.9rem;
+        color: #d1fae5;
+        margin-bottom: 12px;
+      }
+      .game-score span {
+        color: #34d399;
+        font-weight: 700;
+      }
+      .game-heart {
+        position: absolute;
+        font-size: 26px;
+        cursor: pointer;
+        transition: transform 0.1s ease;
+        user-select: none;
+        animation: gameHeartIn 0.25s ease;
+      }
+      @keyframes gameHeartIn {
+        from {
+          transform: scale(0) rotate(-30deg);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1) rotate(0);
+          opacity: 1;
+        }
+      }
+      .game-heart:active {
+        transform: scale(1.3);
+      }
+
+      /* استایل گالری عکس */
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+      .gallery-img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 12px;
+        border: 1px solid rgba(52, 211, 153, 0.2);
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease,
+          z-index 0.3s;
+        cursor: pointer;
+        animation: popIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+      }
+      .gallery-img:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+      .gallery-img:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      @keyframes popIn {
+        from {
+          opacity: 0;
+          transform: scale(0.5) rotate(-5deg);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1) rotate(0);
+        }
+      }
+      .gallery-img:hover {
+        transform: scale(1.08) rotate(2deg);
+        box-shadow:
+          0 10px 20px rgba(0, 0, 0, 0.5),
+          0 0 20px rgba(52, 211, 153, 0.4);
+        z-index: 2;
+      }
+
+      @media (max-width: 520px) {
+        .card {
+          padding: 32px 22px 28px;
+          border-radius: 24px;
+        }
+        .letter {
+          font-size: 0.98rem;
+          line-height: 1.9;
+        }
+        .buttons {
+          grid-template-columns: 1fr;
+        }
+        .btn.full {
+          grid-column: span 1;
+        }
+        .btn {
+          font-size: 0.88rem;
+          padding: 13px 14px;
+        }
+        .gallery-grid {
+          grid-template-columns: 1fr;
+        }
+        .gallery-img {
+          height: 220px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+    <div class="stars" id="stars"></div>
+
+    <div class="card">
+      <div class="heart-top">
+        <svg viewBox="0 0 24 24">
+          <path
+            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+          />
+        </svg>
+      </div>
+
+      <h1>سایان، اینو بخون</h1>
+      <p class="subtitle">— یه چیز کوچیک از طرف حسین —</p>
+      <div class="letter">
+        <p>
+          سایان، نمی‌خوام با کلیشه و حرف‌های تکراری شروع کنم. تو این روزا آدم‌ها
+          راحت به هم می‌گن "دوستت دارم"، ولی من دوست داشتم این حرف رو یه جور
+          دیگه، یه جای مخصوص، برات بگم.
+        </p>
+        <p>
+          گاهی به این فکر می‌کنم که چقدر عجیبه که بعضی آدم‌ها از بین این همه
+          شلوغی و تصادف، دقیقاً سر راه هم قرار می‌گیرن. وقتی به
+          <span class="name">تو</span> فکر می‌کنم، می‌بینم اون همه شلوغی و
+          دغدغه، اصلاً به چشم نمیاد.
+        </p>
+        <p>
+          راستش رو بخوای، من توی بیان احساسات خیلی ماهر نیستم. ولی وقتی باهام
+          حرف می‌زنی، وقتی می‌خندی، یا حتی وقتی فقط ساکتی، حس می‌کنم یه آرامش
+          عجیبی دارم. یه آرامشی که هیچ جای دیگه پیداش نمی‌کنم.
+        </p>
+        <p>
+          این سایتی که داری می‌بینی، شاید فقط چند خط کد باشه، ولی پشت هر خطش،
+          کلی فکر به <span class="highlight">تو</span> بوده. خواستم یه گوشه‌ای
+          باشه که هر وقت دلت گرفت یا خواستی یادت بیاد یه نفر هست که براش مهمی،
+          بیای اینجا.
+        </p>
+        <p>
+          نمی‌خوام این حرفا سنگینت کنه. فقط خواستم بدونی که بودنت، حتی از پشت
+          این صفحه‌ی گوشی، برام یه نعمت بزرگه. مراقب خودت باش.
+        </p>
+      </div>
+
+      <hr class="divider" />
+
+      <div class="buttons">
+        <button class="btn" id="btnHeartRain">
+          <span class="icon">💚</span> بارون قلب</button
+        ><button class="btn" id="btnFirework">
+          <span class="icon">🎆</span> آتش‌بازی
+        </button>
+        <button class="btn" id="btnSecret">
+          <span class="icon">🔒</span> پیام مخفی
+        </button>
+
+        <!-- دکمه موزیک داریوش -->
+        <button class="btn" id="btnMusic">
+          <span class="icon">🎵</span> <span id="musicLabel">آهنگ داریوش</span>
+        </button>
+
+        <!-- دکمه گالری عکس -->
+        <button class="btn full" id="btnGallery">
+          <span class="icon">📸</span> عکس‌های ما
+        </button>
+
+        <!-- دکمه بازی -->
+        <button class="btn full" id="btnGame">
+          <span class="icon">🎮</span> بازی کوچیک — قلب بگیر
+        </button>
+      </div>
+
+      <div class="signature">
+        <div class="with-love">با عشق، از طرف</div>
+        <div class="name-sign">حسین</div>
+      </div>
+    </div>
+
+    <!-- پیام مخفی -->
+    <div class="secret-modal" id="secretModal">
+      <div class="secret-box">
+        <span class="lock">🔓</span>
+        <h2>یه چیز که فقط تو باید بدونی</h2>
+        <p>
+          سایان، راستش رو بخوای، همیشه یه سری حرفا رو توی دلم نگه می‌دارم چون
+          نمی‌دونم چطوری بگم که خرابش نکنم. ولی حالا که اینجایی، می‌خوام بدونی
+          که از وقتی اومدی، خیلی چیزا برام رنگی‌تر شده.
+          <br /><br />
+          شاید نتونم هر روز اینا رو بهت بگم، ولی همیشه یادت باشه که یکی هست که
+          با فکر کردن به تو، روزش قشنگ‌تر می‌شه. مراقب خودت باش، بیشتر از هر
+          کسی.
+        </p>
+        <button class="close-btn" id="closeSecret">بستن</button>
+      </div>
+    </div>
+
+    <!-- گالری عکس -->
+    <div class="gallery-modal" id="galleryModal">
+      <div class="gallery-box">
+        <h2>یه چندتا خاطره...</h2>
+        <div class="gallery-grid">
+          <!-- اسم عکس‌ها اینجا مهمه -->
+          <img src="1.jpg" alt="عکس کودکی" class="gallery-img" />
+          <img src="2.jpg" alt="عکس کودکی" class="gallery-img" />
+        </div>
+        <button class="close-btn" id="closeGallery">بستن</button>
+      </div>
+    </div>
+
+    <!-- بازی -->
+    <div class="game-modal" id="gameModal">
+      <div class="game-box">
+        <h2>قلب بگیر برای سایان</h2>
+        <p class="game-sub">هر قلبی که می‌گیری، یه دونه به عشق اضافه می‌شه</p>
+        <div class="game-score">
+          <div>امتیاز: <span id="gameScore">0</span></div>
+          <div>زمان: <span id="gameTime">20</span>ث</div>
+        </div>
+        <div class="game-area" id="gameArea"></div>
+        <button class="close-btn" id="closeGame">بستن بازی</button>
+      </div>
+    </div>
+
+    <!-- آهنگ داریوش (فایل باید کنار سایت باشه و اسمش dariush.mp3 باشه) -->
+    <audio id="mySong" src="./Dariush.mp3" preload="metadata" loop></audio>
+
+    <script>
+      /* ========== ستاره‌ها ========== */
+      (function createStars() {
+        var container = document.getElementById("stars");
+        for (var i = 0; i < 80; i++) {
+          var star = document.createElement("div");
+          star.className = "star";
+          var size = Math.random() * 2.5 + 0.5;
+          star.style.width = size + "px";
+          star.style.height = size + "px";
+          star.style.left = Math.random() * 100 + "%";
+          star.style.top = Math.random() * 100 + "%";
+          star.style.setProperty("--d", Math.random() * 4 + 2 + "s");
+          star.style.animationDelay = Math.random() * 4 + "s";
+          container.appendChild(star);
+        }
+      })();
+
+      /* ========== افکت ماوس روی دکمه‌ها ========== */
+      document.querySelectorAll(".btn").forEach(function (btn) {
+        btn.addEventListener("mousemove", function (e) {
+          var rect = btn.getBoundingClientRect();
+          btn.style.setProperty(
+            "--mx",
+            ((e.clientX - rect.left) / rect.width) * 100 + "%",
+          );
+          btn.style.setProperty(
+            "--my",
+            ((e.clientY - rect.top) / rect.height) * 100 + "%",
+          );
+        });
+      });
+
+      /* ========== قلب شناور عمومی ========== */
+      function spawnHeart(x, y, opts) {
+        opts = opts || {};
+        var heart = document.createElement("div");
+        heart.className = "floating-heart";
+        heart.textContent = opts.emoji || "💚";
+        heart.style.left = x + "px";
+        heart.style.top = y + "px";
+        heart.style.color =
+          opts.color ||
+          "hsl(" +
+            (150 + Math.random() * 30) +
+            ", 80%, " +
+            (65 + Math.random() * 15) +
+            "%)";
+        heart.style.fontSize = (opts.size || 16 + Math.random() * 20) + "px";
+        heart.style.animationDuration =
+          (opts.dur || 3.5 + Math.random() * 1.5) + "s";
+        document.body.appendChild(heart);
+        setTimeout(function () {
+          heart.remove();
+        }, 5500);
+      }
+
+      /* ========== دکمه ۱: بارون قلب ========== */
+      document
+        .getElementById("btnHeartRain")
+        .addEventListener("click", function () {
+          var btn = this;
+          btn.classList.add("active");
+          setTimeout(function () {
+            btn.classList.remove("active");
+          }, 2200);
+
+          var emojis = ["💚", "💚", "💚", "💚", "🤍"];
+          var i = 0;
+          var interval = setInterval(function () {
+            var x = Math.random() * window.innerWidth;
+            spawnHeart(x, window.innerHeight + 20, {
+              emoji: emojis[Math.floor(Math.random() * emojis.length)],
+              size: 18 + Math.random() * 22,
+              dur: 3 + Math.random() * 2,
+            });
+            if (++i >= 40) clearInterval(interval);
+          }, 70);
+        });
+
+      /* ========== دکمه ۲: آتش‌بازی ========== */
+      function fireworkAt(x, y) {
+        var colors = [
+          "#34d399",
+          "#6ee7b7",
+          "#a7f3d0",
+          "#10b981",
+          "#d1fae5",
+          "#fbbf24",
+        ];
+        var count = 30;
+        for (var i = 0; i < count; i++) {
+          var p = document.createElement("div");
+          p.className = "firework";
+          var angle = (Math.PI * 2 * i) / count + Math.random() * 0.3;
+          var dist = 60 + Math.random() * 120;
+          p.style.left = x + "px";
+          p.style.top = y + "px";
+          var col = colors[Math.floor(Math.random() * colors.length)];
+          p.style.background = col;
+          p.style.boxShadow = "0 0 8px " + col;
+          p.style.setProperty("--tx", Math.cos(angle) * dist + "px");
+          p.style.setProperty("--ty", Math.sin(angle) * dist + "px");
+          p.style.animation =
+            "explode " + (0.8 + Math.random() * 0.6) + "s ease-out forwards";
+          var s = 3 + Math.random() * 5;
+          p.style.width = s + "px";
+          p.style.height = s + "px";
+          document.body.appendChild(p);
+          (function (el) {
+            setTimeout(function () {
+              el.remove();
+            }, 1600);
+          })(p);
+        }
+      }
+
+      document
+        .getElementById("btnFirework")
+        .addEventListener("click", function () {
+          var btn = this;
+          btn.classList.add("active");
+          setTimeout(function () {
+            btn.classList.remove("active");
+          }, 1500);
+
+          var rect = btn.getBoundingClientRect();
+          var cx = rect.left + rect.width / 2;
+          var cy = rect.top + rect.height / 2;
+
+          for (var i = 0; i < 4; i++) {
+            (function (idx) {
+              setTimeout(function () {
+                fireworkAt(
+                  cx + (Math.random() - 0.5) * 250,
+                  cy + (Math.random() - 0.5) * 200,
+                );
+              }, idx * 250);
+            })(i);
+          }
+          setTimeout(function () {
+            fireworkAt(window.innerWidth / 2, window.innerHeight / 2);
+          }, 1100);
+        });
+
+      /* ========== دکمه ۳: پیام مخفی ========== */
+      var secretModal = document.getElementById("secretModal");
+      document
+        .getElementById("btnSecret")
+        .addEventListener("click", function () {
+          secretModal.classList.add("open");
+        });
+      document
+        .getElementById("closeSecret")
+        .addEventListener("click", function () {
+          secretModal.classList.remove("open");
+        });
+      secretModal.addEventListener("click", function (e) {
+        if (e.target === secretModal) secretModal.classList.remove("open");
+      });
+
+      /* ========== دکمه ۴: گالری عکس ========== */
+      var galleryModal = document.getElementById("galleryModal");
+      document
+        .getElementById("btnGallery")
+        .addEventListener("click", function () {
+          galleryModal.classList.add("open");
+        });
+      document
+        .getElementById("closeGallery")
+        .addEventListener("click", function () {
+          galleryModal.classList.remove("open");
+        });
+      galleryModal.addEventListener("click", function (e) {
+        if (e.target === galleryModal) galleryModal.classList.remove("open");
+      });
+
+      /* ========== دکمه ۵: موزیک داریوش ========== */
+      var mySong = document.getElementById("mySong");
+      var btnMusic = document.getElementById("btnMusic");
+      var musicLabel = document.getElementById("musicLabel");
+
+      btnMusic.addEventListener("click", function () {
+        if (mySong.paused) {
+          mySong.play();
+          btnMusic.classList.add("active");
+          btnMusic.querySelector(".icon").textContent = "⏸";
+          musicLabel.textContent = "قطع آهنگ";
+        } else {
+          mySong.pause();
+          btnMusic.classList.remove("active");
+
+          btnMusic.querySelector(".icon").textContent = "🎵";
+          musicLabel.textContent = "آهنگ داریوش";
+        }
+      });
+
+      /* ========== دکمه ۶: بازی قلب ========== */
+      var gameModal = document.getElementById("gameModal");
+      var gameArea = document.getElementById("gameArea");
+      var gameScoreEl = document.getElementById("gameScore");
+      var gameTimeEl = document.getElementById("gameTime");
+      var gameScore = 0;
+      var gameTime = 20;
+      var gameTimer = null;
+      var gameSpawner = null;
+      var gameActive = false;
+
+      function spawnGameHeart() {
+        if (!gameActive) return;
+
+        var heart = document.createElement("div");
+        heart.className = "game-heart";
+        var emojis = ["💚", "💚", "💚", "🤍"];
+        heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+
+        var leftPos = 10 + Math.random() * (gameArea.clientWidth - 50);
+        var topPos = 10 + Math.random() * (gameArea.clientHeight - 50);
+
+        heart.style.left = leftPos + "px";
+        heart.style.top = topPos + "px";
+        heart.style.fontSize = 22 + Math.random() * 16 + "px";
+
+        heart.addEventListener("click", function () {
+          if (!gameActive) return;
+          gameScore++;
+          gameScoreEl.textContent = gameScore;
+          heart.style.transform = "scale(1.8)";
+          heart.style.opacity = "0";
+          var r = heart.getBoundingClientRect();
+          spawnHeart(r.left + 10, r.top + 10, {
+            emoji: "✨",
+            size: 20,
+            dur: 1.5,
+          });
+          setTimeout(function () {
+            if (heart.parentNode) heart.remove();
+          }, 200);
+        });
+
+        gameArea.appendChild(heart);
+
+        setTimeout(function () {
+          if (heart.parentNode) heart.remove();
+        }, 2200);
+      }
+
+      function endGame() {
+        gameActive = false;
+        if (gameTimer) {
+          clearInterval(gameTimer);
+          gameTimer = null;
+        }
+        if (gameSpawner) {
+          clearInterval(gameSpawner);
+          gameSpawner = null;
+        }
+        gameArea.innerHTML = "";
+
+        var msg = document.createElement("div");
+        msg.style.cssText =
+          "position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#d1fae5;font-family:inherit;background:rgba(5,15,10,0.85);border-radius:16px;gap:8px;";
+        msg.innerHTML =
+          '<div style="font-size:2rem;">' +
+          (gameScore >= 15 ? "🏆" : "💚") +
+          "</div>" +
+          '<div style="font-size:1.1rem;font-weight:700;">امتیازت: ' +
+          gameScore +
+          "</div>" +
+          '<div style="font-size:0.85rem;color:rgba(167,243,208,0.6);">' +
+          (gameScore >= 15
+            ? "خفن بود! سایان خوشحال می‌شه"
+            : "بازم تلاش کن، عشق به تمرین نیاز داره") +
+          "</div>";
+        gameArea.appendChild(msg);
+      }
+
+      function startGame() {
+        gameScore = 0;
+        gameTime = 20;
+        gameScoreEl.textContent = "0";
+        gameTimeEl.textContent = "20";
+        gameArea.innerHTML = "";
+        gameActive = true;
+
+        spawnGameHeart();
+        gameSpawner = setInterval(spawnGameHeart, 650);
+
+        gameTimer = setInterval(function () {
+          if (!gameActive) return;
+          gameTime--;
+          gameTimeEl.textContent = gameTime;
+          if (gameTime <= 0) endGame();
+        }, 1000);
+      }
+
+      document.getElementById("btnGame").addEventListener("click", function () {
+        gameModal.classList.add("open");
+        setTimeout(startGame, 300);
+      });
+
+      document
+        .getElementById("closeGame")
+        .addEventListener("click", function () {
+          gameActive = false;
+          if (gameTimer) {
+            clearInterval(gameTimer);
+            gameTimer = null;
+          }
+          if (gameSpawner) {
+            clearInterval(gameSpawner);
+            gameSpawner = null;
+          }
+          gameModal.classList.remove("open");
+        });
+    </script>
+  </body>
+</html>
